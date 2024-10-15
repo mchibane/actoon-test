@@ -1,5 +1,9 @@
 const	fs = require('node:fs')
 
+/*
+**	Datatypes
+*/
+
 type Field = {
 	width: number,
 	height: number
@@ -13,6 +17,9 @@ type LawnMower = {
 }
 
 type Data = [Field, Array<LawnMower>]
+
+/***************************************/
+
 
 
 function	main(argv: string[]): number
@@ -28,6 +35,12 @@ function	main(argv: string[]): number
 	playInstructions(data)
 	return (0)
 }
+
+
+/*
+**	Parses the file into appropriate datastructures according to the subject's specification
+**	Very minimal error checking : Number of input per line, NaN errors, invalid orientation and instructions are covered
+*/
 
 function	parseFile(input: string): Data | null
 {
@@ -73,6 +86,10 @@ function	parseFile(input: string): Data | null
 	return [field, mowers]
 }
 
+/*
+**	Utility functions for parsing
+*/
+
 function isOrientation(orientation: string): boolean
 {
 	return (
@@ -93,6 +110,13 @@ function isInstructions(instructions: string): boolean
 	}
 	return true
 }
+
+/***********************************************/
+
+
+/*
+**	Logic functions for the program to work as intended
+*/
 
 function	playInstructions(data: Data)
 {
