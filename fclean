@@ -1,0 +1,3 @@
+#!/bin/bash
+./clean
+rm -rf node_modules/
